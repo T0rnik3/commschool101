@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000;
+}
+
+.bg_header {
+    padding: 34px 0px;
+    background: rgba(0, 0, 0, 0.602);
+    position: sticky;
+    top: 0px;
+}
+
+p {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+h1 {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 76px;
+    /* identical to box height, or 108% */
+
+    text-align: center;
+    letter-spacing: 0.68px;
+
+    color: #FFFFFF;
+
+}
+
+h2 {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38px;
+    text-align: left;
+    letter-spacing: 0.68px;
+
+    color: #FFFFFF;
+}
+
+#banner {
+    margin-top: 166px;
+}
+
+#about {
+    margin-top: 166px;
+    background-image: url("./../img/about.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mt-55 {
+    margin-top: 55px;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.dir-column {
+    flex-direction: column;
+}
+
+.nav_items {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: #848895;
+}
+
+.container {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    background: linear-gradient(260.33deg, #0047FF -13.37%, #00BCD4 109.53%);
+}
+
+.info p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.baner1 {
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+}
+
+.banner2 {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+.g-25 {
+    gap: 25px;
+}
+
+.btn_primary {
+    background: linear-gradient(98.88deg, #8C01FA -2.99%, #000000 102.28%);
+    border: 1px solid #000000;
+    border-radius: 36px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 16px 33px;
+
+}
+
+.btn_secondary {
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 36px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 16px 33px;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.gradient_bg {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 101px;
+    line-height: 132px;
+    background: linear-gradient(261.81deg, #19FB9B -8.01%, #8C01FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.gradient_bg2 {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 101px;
+    line-height: 132px;
+    background: linear-gradient(260.33deg, #0047FF -13.37%, #00BCD4 109.53%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.gradient_bg3 {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 101px;
+    line-height: 132px;
+    background: linear-gradient(265.11deg, #00FFBD -5.84%, #025B8C 111.58%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.about_desc {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #C4C4C4;
+    text-align: left;
+}
+
+.col-4 {
+    width: 33%;
+}
+
+.glass_bg {
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 24px;
+    padding: 32px;
+}
+
+.br-blue {
+    border-left: 2px solid #1FCFF1;
+    padding-left: 15px;
+}
+
+.br-yellow {
+    border-left: 2px solid #FFD512;
+    padding-left: 15px;
+}
