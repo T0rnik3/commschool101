@@ -1,0 +1,40 @@
+@font-face {
+    font-family: openSansMine;
+    src: url('../fonts/OpenSans_Condensed-Medium.ttf');
+}
+
+.bnt_outline__purple {
+    width: 102px;
+    height: 51px;
+    color: #6C63FF;
+    border: 1px solid #6C63FF;
+    border-radius: 2px;
+}
+
+.bnt_purple {
+    width: 140px;
+    height: 51px;
+    background: #6C63FF;
+    color: white;
+    border: 1px solid #6C63FF;
+    border-radius: 2px;
+    margin-left: 15px;
+}
+
+.banner_header {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 86px;
+    line-height: 88px;
+    color: black;
+}
+
+.banner_text {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 34px;
+    color: #9893A3;
+}
