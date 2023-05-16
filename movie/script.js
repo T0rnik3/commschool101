@@ -23,8 +23,8 @@ function showMovies(movies) {
   movies.forEach((movie) => {
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie");
-    if (movie.vote_average >= 8) {
-      movieEl.innerHTML = `
+
+    movieEl.innerHTML = `
                 <div>
                     <h3>${movie.title}</h3>
                     <p>${movie.overview}</p>
@@ -32,9 +32,6 @@ function showMovies(movies) {
                     <p>${movie.vote_average}</p>
                 </div>
             `;
-    } else {
-      null;
-    }
 
     main.appendChild(movieEl);
   });
