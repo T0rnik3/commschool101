@@ -5,16 +5,19 @@ const IMG_PATH = "https://image.tmdb.org/t/p/w1280/";
 const API_URL =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1";
 // აქ წამოვიღეთ ყველა ელემენტი რომელიც ჰტმლ ში იჯდა რომელზეც დამუშავება გვინდოდა რომ გაგვეკეთებინა
-const main = document.getElementById("main");
+const main = document.getElementById("booking");
 
 const similar = document.getElementById("similar");
 
 // აქ ლოკალურ მონაცეამთა ბაზიდან ამოვიღეთ ინორმაცია
 const movie = localStorage.getItem("movie");
+localStorage.setItem("movie", movie);
 console.log(JSON.parse(movie));
 // შემოსული ინფორმაცია თავიდან არის სტრქინგი და მაგის გამო json.parse მეთოდით გავხადეთ ობიექტად
 const movieData = JSON.parse(movie);
 
+const myImage = document.getElementById("ls");
+myImage.src = IMG_PATH + movieData.backdrop_path;
 // ახალი დივი შევქმენით
 const movieDesc = document.createElement("div");
 // კლასი რომლეიც არის bootstrap კლასი
@@ -55,19 +58,20 @@ movieDesc.classList.add("container");
 // და რადგანაც მასივი არაა არც foreach მჭირდება და არც map
 // აქედან დავხატეთ უქვე ერტი ფილმის აღწერა
 movieDesc.innerHTML = `
-    <img src="${IMG_PATH + movieData.backdrop_path}" >
-    <div class="row mt-5"> 
-    <div class="col-4">
-    <img src="${IMG_PATH + movieData.poster_path}" >
+  <!--  <img src="${IMG_PATH + movieData.backdrop_path}" >-->
+  <div class="movie-row">
+    <img class="movie-img" src="${IMG_PATH + movieData.poster_path}" />
+    <div class="texts">
+      <h1>${movieData.title}</h1>
+      <p>${movieData.overview}</p>
+      <p>${movieData.original_language}</p>
+      <p class="${getClassByVote(movieData.vote_average)}" style="width: 3rem;font-size: 30px;padding: 3px;text-align: center;">
+        ${movieData.vote_average}
+      </p>
     </div>
-    <div class="col-8">
-    <h3 class="text-white">${movieData.title}</h3> 
-    <p class="text-white">${movieData.overview}</p>
-    <p class="text-white">${movieData.original_language}</p>
-    <p class="text-white">${movieData.vote_average}</p>
-    </div>
-    </div>
+  </div>
 `;
+
 // main დივში შვილებად ჩავ უგდეთ დახატული იფორმაცია
 main.appendChild(movieDesc);
 
@@ -121,30 +125,23 @@ function showMovies(movies) {
   smallMovies.forEach((movie) => {
     // წინასწარ რა ელემენტებიც იქნებოდა ობიექტში ჩასმული რაც მოდიოდა აპი დან
     // წინასწარ შევქმენით ცვლადები რო აღარ დაგვეწერა movie.title
-    const { title, overview, original_language, vote_average, poster_path } =
-      movie;
+    const { title, poster_path, vote_average, overview } = movie;
     // ეს ქმნის div ელემენტს
     const movieEl = document.createElement("div");
     // ეს div ელემენტს უქმნის class col-4 ს
-    movieEl.classList.add("col-4");
+    movieEl.classList.add("movie");
     // აქედან ვახდენთ დახატვას რო თითოეული ელემენტი როგორ გამოვიდეს
     movieEl.innerHTML = `
-                <div class="p-4">
-                <div class="movies">
-                  <img src="${IMG_PATH + poster_path}" >
-                  <div class="movie_content_box">
-                    <h3>${title}</h3>
-                    <p>${overview}</p>
-                    <p>${original_language}</p>
-                    </div>
-                    <span>
-                      <p class="${getClassByVote(
-                        vote_average
-                      )}">${vote_average}</p>
-                    </span>
-                    </div>
-                </div>
-            `;
+      <img class="imgs" src="${IMG_PATH + poster_path}" alt="${title}">
+      <div class="movie-info">
+        <h3>${title}</h3>
+        <span class="${getClassByVote(vote_average)}">${vote_average}</span>
+      </div>
+      <div class="overview">
+        <h3>Overview</h3>
+        ${overview}
+      </div>
+    `;
     // ამით გამოძახებულ main დივს შიგნით შვილებად ვუმატებთ ყველა ელემენტს რომელიც ზემოით დავხატეთ
     similar.appendChild(movieEl);
     // დაჭერაზე ვქმნით ევენთს რომლეიც ბრაუზერის ლოკალურ მონაცემთა ბაზაში ამატებს ერთ ობიექტს
@@ -171,45 +168,6 @@ function getClassByVote(vote) {
 
 // აქ უნდა შექმნათ ახალი ობიექტი თქვნეი ხლეით დაახლოებით უნდა იყოს
 
-const seats = [
-  {
-    id: 1,
-    price: 10,
-  },
-  {
-    id: 2,
-    price: 10,
-  },
-  {
-    id: 3,
-    price: 10,
-  },
-  {
-    id: 4,
-    price: 10,
-  },
-  {
-    id: 5,
-    price: 10,
-  },
-  {
-    id: 6,
-    price: 10,
-  },
-  {
-    id: 7,
-    price: 10,
-  },
-  {
-    id: 8,
-    price: 10,
-  },
-  {
-    id: 9,
-    price: 10,
-  },
-];
-
 // seat ზე დაფუძნებიტ უნდა გამოიტანო ვიზაულირად
 
 // [ 1 ]  [ 2 ]  [ 3 ]
@@ -225,8 +183,47 @@ const seats = [
 // 2)   movieEl.addEventListener("click", () => {
 // აქედან ჩაემატა
 //   localStorage.setItem("seats", JSON.stringify(seats));
-//   // ახალ გვერდზე გადაგიყვანოს
+// ახალ გვერდზე გადაგიყვანოს
 //   window.location = "checkout.html";
 // });
 
 //3) /// რაც ამ გვერდში გვაქვს ეგ უნდა გამოიყენო უბრალოდ async function getMovies(url)  ესენი აღარ გამოიზძახოთ checkout ს გვერდზე
+
+const container = document.querySelector(".container1");
+const seats = document.querySelectorAll(".row1 .seat:not(.occupied)");
+const count = document.getElementById("count");
+const total = document.getElementById("total");
+let ticketPrice = 10;
+
+function updateSelectedCount() {
+  const selectedSeats = document.querySelectorAll(".row1 .seat.selected");
+  const selectedSeatsCount = selectedSeats.length;
+
+  count.innerText = selectedSeatsCount;
+  total.innerText = selectedSeatsCount * ticketPrice;
+}
+
+container.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("seat") &&
+    !e.target.classList.contains("occupied")
+  ) {
+    e.target.classList.toggle("selected");
+    updateSelectedCount();
+  }
+});
+
+const btn = document.getElementById("btn");
+btn.addEventListener("click", () => {
+  const seats = document.querySelectorAll(".row1 .seat.selected");
+  const seatnums = [];
+  seats.forEach((s) => {
+    seatnums.push(s.getAttribute("value"));
+  });
+
+  localStorage.setItem("seatnums", JSON.stringify(seatnums));
+
+  window.location = "checkout/checkout.html";
+});
+
+

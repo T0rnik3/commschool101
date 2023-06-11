@@ -1,68 +1,233 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 
 :root {
-    --primary-color: #222f56;
-    --secondary-color: #052995;
+    --primary-color: #45126f;
+    --secondary-color: #343fb5;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--primary-color) !important;
+    background-color: var(--primary-color);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
 }
 
-.movies {
-    background-color: var(--secondary-color) !important;
-    position: relative;
-    height: 850px;
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--secondary-color);
 }
 
-img {
-    width: 100%;
+.title {
+    color: rgb(218, 214, 214);
 }
 
 #main {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    background-color: #00274e;
 }
 
-
-.movie_content_box {
-    padding: 10px;
+.movie {
+    width: 300px;
+    margin: 1rem;
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
 }
 
-.movie_content_box h3 {
-    font-size: 20px;
+.movie-info {
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2rem;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+    margin-top: 0;
+}
+
+.movie-info span {
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: white;
 }
 
-.movie_content_box p {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: white;
+.movie-info span.green {
+    color: lightgreen;
 }
 
-span p {
-    width: 50px;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 8px;
+.movie-info span.orange {
+    color: orange;
+}
+
+.movie-info span.red {
+    color: red;
+}
+
+.overview {
+    background-color: #bab8b8;
+    padding: 2rem;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(101%);
+    overflow-y: auto;
+    transition: transform 0.3s ease-in;
 }
 
-.yellow {
-    background-color: yellow;
+.movie:hover .overview {
+    transform: translateY(0);
 }
 
-.green {
-    background-color: green;
+/* bookingamde */
+
+.movie-img {
+    width: 20rem;
 }
 
-.red {
-    background-color: red;
+.movie-row {
+    display: flex;
+    gap: 1.5rem;
+    color: aliceblue;
+    margin-top: 2rem;
+}
+
+.imgs {
+    width: 100%;
+}
+
+/*booking */
+.div {
+    width: 80%;
+    padding: 50px;
+    margin: 30px auto;
+    background-color: #242333;
+    color: white;
+}
+
+.container1 {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seat {
+    background-color: #444451;
+    height: 20px;
+    width: 30px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.seat.selected {
+    background-color: #6feaf6;
+}
+
+.seat.occupied {
+    background-color: #fff;
+}
+
+.seat:nth-of-type(2) {
+    margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+    margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.showcase li small {
+    margin-left: 2px;
+}
+
+.screen {
+    background-color: #fff;
+    height: 150px;
+    width: 70%;
+    object-fit: cover;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.7);
+}
+
+.row1 {
+    display: flex;
+
+    margin: 0 auto;
+}
+
+p.text {
+    font-size: 2rem;
+    margin: 20px 0 5px 0;
+}
+
+p.text span {
+    color: #6feaf6;
+}
+
+#btn {
+    background-color: #013262;
+    color: #ffffff;
+    border: none;
+    /* margin-top: 0rem; */
+    border-radius: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#btn:hover {
+    background-color: #00274e;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    background-color: #00274e;
 }

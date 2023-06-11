@@ -56,31 +56,24 @@ function showMovies(movies) {
   movies.forEach((movie) => {
     // წინასწარ რა ელემენტებიც იქნებოდა ობიექტში ჩასმული რაც მოდიოდა აპი დან
     // წინასწარ შევქმენით ცვლადები რო აღარ დაგვეწერა movie.title
-    const { title, overview, original_language, vote_average, poster_path } =
-      movie;
+    const { title, poster_path, vote_average, overview } = movie
     // ეს ქმნის div ელემენტს
     const movieEl = document.createElement("div");
     // ეს div ელემენტს უქმნის class col-4 ს
-    movieEl.classList.add("col-4");
+    movieEl.classList.add("movie");
 
     // აქედან ვახდენთ დახატვას რო თითოეული ელემენტი როგორ გამოვიდეს
     movieEl.innerHTML = `
-                <div class="p-4">
-                <div class="movies">
-                  <img src="${IMG_PATH + poster_path}" >
-                  <div class="movie_content_box">
-                    <h3>${title}</h3>
-                    <p>${overview}</p>
-                    <p>${original_language}</p>
-                    </div>
-                    <span>
-                      <p class="${getClassByVote(
-                        vote_average
-                      )}">${vote_average}</p>
-                    </span>
-                    </div>
-                </div>
-            `;
+      <img class="imgs" src="${IMG_PATH + poster_path}" alt="${title}">
+      <div class="movie-info">
+        <h3>${title}</h3>
+        <span class="${getClassByVote(vote_average)}">${vote_average}</span>
+      </div>
+      <div class="overview">
+        <h3>Overview</h3>
+        ${overview}
+      </div>
+    `;
     // ამით გამოძახებულ main დივს შიგნით შვილებად ვუმატებთ ყველა ელემენტს რომელიც ზემოით დავხატეთ
     main.appendChild(movieEl);
     // დაჭერაზე ვქმნით ევენთს რომლეიც ბრაუზერის ლოკალურ მონაცემთა ბაზაში ამატებს ერთ ობიექტს
